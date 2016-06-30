@@ -77,6 +77,7 @@ module Backup
     autoload :MySQL,      File.join(DATABASE_PATH, 'mysql')
     autoload :PostgreSQL, File.join(DATABASE_PATH, 'postgresql')
     autoload :MongoDB,    File.join(DATABASE_PATH, 'mongodb')
+    autoload :MongoDB,    File.join(DATABASE_PATH, 'neo4j')
     autoload :Redis,      File.join(DATABASE_PATH, 'redis')
     autoload :Riak,       File.join(DATABASE_PATH, 'riak')
     autoload :OpenLDAP,   File.join(DATABASE_PATH, 'openldap')

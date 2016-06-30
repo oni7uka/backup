@@ -55,15 +55,10 @@ module Backup
       def backup
         dst_path = File.join(dump_path, dump_filename)
         cmd = "#{ bin_path }/neo4j-backup -#{ mode } -host #{ host } -to #{ dst_path }"
-        puts '--------------------------------------------------------------'
-        puts cmd
-        puts '--------------------------------------------------------------'
         run(cmd)
-        if model.compressor
-          model.compressor.compress_with do |command, ext|
-            run("#{ command } -c '#{ dst_path }' > '#{ dst_path + ext }'")
-          end
-        end
+        model.compressor.compress_with do |command, ext|
+          run("#{ command } -cr '#{ dst_path }' > '#{ dst_path + ext }'")
+        end if model.compressor
       end
     end
   end
