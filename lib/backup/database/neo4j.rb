@@ -57,7 +57,7 @@ module Backup
         cmd = "#{ bin_path }/neo4j-backup -#{ mode } -host #{ host } -to #{ dst_path }"
         run(cmd)
         model.compressor.compress_with do |command, ext|
-          run("#{ command } -cr '#{ dst_path }' > '#{ dst_path + ext }'")
+      #    run("#{ command } -cr '#{ dst_path }' > '#{ dst_path + ext }'")
         end if model.compressor
       end
     end
